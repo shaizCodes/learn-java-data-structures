@@ -37,3 +37,30 @@
      + "first.equals(second): " + firstObject.equals(secondObject)
     );
     ```
+
+* ### *String* toString()
+
+    It represents an object textually, and it should be overriden for every subclasses.
+
+    For the root *Object* class, it returns the class name ( *getClass().getName()* ) followed by ampersand ( *@* ) before the integer hexadecimal representation of the object hashcode ( *Integer.toHexString(hashCode())* ).
+
+    ```Java
+    Object object = new Object();
+    System.out.printf(
+      "%-20s: %s\n"
+      +"%-20s: %s\n"
+      +"%-20s: %s\n"
+      +"%-20s: %s\n"
+      +"%-20s: %s\n",
+      "object",
+      object,
+      "object.toString()",
+      object.toString(),
+      "object.getClass()",
+      object.getClass(),
+      "object.hashCode()",
+      object.hashCode(),
+      "Integer.toHexString(object.hashCode()): ",
+      Integer.toHexString(object.hashCode())
+    );
+    ```
