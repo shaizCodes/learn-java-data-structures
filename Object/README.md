@@ -64,3 +64,6 @@
       Integer.toHexString(object.hashCode())
     );
     ```
+
+> [!NOTE]
+> [Read more about ***String*** here, especially this note](../String/README.md#important-note-what-class-to-use-and-when)
