@@ -36,7 +36,8 @@
      + "first == second: " + (firstObject == secondObject)
      + "first.equals(second): " + firstObject.equals(secondObject)
     );
-    ```
+
+    [Do check the source code for Shallow and Deep copy.](./CloneExample.java)
 
 * ### *String* toString()
 
