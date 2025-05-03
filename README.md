@@ -17,7 +17,7 @@ It contains the lessons I learn through the official Java documentation and prac
 > [!NOTE]
 > An object hashcode changes when the object is modified, and multiple objects can have same hashcode when they are equal but it is not necessary.
 
-* * [*public boolean **equals(Object obj)***](./Object/README.md#string-tostring) method verifies whether two objects are equal by checking the following critera:
+* * [*public boolean **equals(Object obj)***](./Object/README.md#public-boolean-equalsobject-obj) method verifies whether two objects are equal by checking the following critera:
 
   **Reflexive:**$\quad x \neq \text{null}, \quad x.equals(x) \implies \text{true}$
 
