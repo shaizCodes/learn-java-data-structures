@@ -29,24 +29,22 @@ It contains the lessons I learn through the official Java documentation and prac
 
   * [*public boolean **equals(Object obj)***](./Object/README.md#string-tostring) method verifies whether two objects are equal by checking the following critera:
 
-  $$
-  \text{Reflexive:} \quad x \neq \text{null}, \quad x.equals(x) \implies \text{true} \\
+$$\text{Reflexive:} \quad x \neq \text{null}, \quad x.equals(x) \implies \text{true} \\
 
-  \text{Non-nullity:} \quad x \neq \text{null}, \quad x.equals(\text{null}) \implies \text{false} \\
+\text{Non-nullity:} \quad x \neq \text{null}, \quad x.equals(\text{null}) \implies \text{false} \\
   
-  \text{Symmetric:} \quad x, y \neq \text{null}, \quad x.equals(y) \iff y.equals(x) \\
+\text{Symmetric:} \quad x, y \neq \text{null}, \quad x.equals(y) \iff y.equals(x) \\
 
-  \text{Transitive:} \quad x, y, z \neq \text{null}, \quad x.equals(y) \land y.equals(z) \implies x.equals(z) \\
+\text{Transitive:} \quad x, y, z \neq \text{null}, \quad x.equals(y) \land y.equals(z) \implies x.equals(z) \\
 
-  \text{Consistent:} \quad x, y \neq \text{null}, \quad x.equals(y) \text{ returns the same result unless } x \text{ or } y \text{ is modified}
-  $$
+\text{Consistent:} \quad x, y \neq \text{null}, \quad x.equals(y) \text{ returns the same result unless } x \text{ or } y \text{ is modified}$$
 
-> [!TIP]
+> [!NOTE]
 > *Objects.hash(Object... values)* can be used to generate hashcode for objects that have multiple fields.
 
 [Check the example here.](./Object/OverridenEqualsExample.java)
 
-> [!IMPORTANT]
+> [!NOTE]
 > Whenever you override the *equals* method, do override the *hashcode* as well. It is because generally objects with same hashcode are considered equal.
 
 </details>

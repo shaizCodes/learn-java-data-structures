@@ -72,3 +72,5 @@
 * ### *public boolean* equals(Object obj)
 
     It compares two objects to verify they are equal. This method can be overriden to define custom criteria for equality, however, hashcode() should be overriden too, because two objects with same hashcode are generally considered equal/same.
+
+    ![Sample program overriding Equals](./outputs/With%20And%20Without%20Equals.PNG)
