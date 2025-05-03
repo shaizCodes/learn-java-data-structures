@@ -9,30 +9,30 @@ It contains the lessons I learn through the official Java documentation and prac
   * [*protected Object **clone()** throws CloneNotSupportedException*](./Object/README.md#protected-object-clone-throws-clonenotsupportedexception) method, returns a **shallow copy** of an object, however, if *Cloneable* interface is not implemented by that object, *CloneNotSupportedException* will be thrown. *Object* class does not implement *Cloneable*. [Check this sample program.](./Object/CloneExample.java)
     ![Shallow Copy vs Deep Copy - Sample Output](./Object/outputs/Shallow%20Copy%20vs%20Deep%20Copy.PNG)
 
-> [!CAUTION]
-> *A shallow copy creates a new object that holds the **same top-level properties as the original, but any nested objects are still references to the original**. A deep copy, on the other hand, creates a **completely independent copy of the object and all its nested objects**, ensuring no shared references.*
+  > [!CAUTION]
+  > *A shallow copy creates a new object that holds the **same top-level properties as the original, but any nested objects are still references to the original**. A deep copy, on the other hand, creates a **completely independent copy of the object and all its nested objects**, ensuring no shared references.*
 
 * * [*public String **toString()***](./Object/README.md#string-tostring) method returns the object information; complete class name, and object hashcode in hexadecimal. The hashcode is useful to verify whether an object is modified or not.
 
-> [!NOTE]
-> An object hashcode changes when the object is modified, and multiple objects can have same hashcode when they are equal but it is not necessary.
+  > [!NOTE]
+  > An object hashcode changes when the object is modified, and multiple objects can have same hashcode when they are equal but it is not necessary.
 
 * * [*public boolean **equals(Object obj)***](./Object/README.md#string-tostring) method verifies whether two objects are equal by checking the following critera:
 
-  $$\text{Reflexive:} \quad x \neq \text{null}, \quad x.equals(x) \implies \text{true} \\
+  **Reflexive:**$\quad x \neq \text{null}, \quad x.equals(x) \implies \text{true}$
 
-  \text{Non-nullity:} \quad x \neq \text{null}, \quad x.equals(\text{null}) \implies \text{false} \\
+  **Non-nullity:**$\quad x \neq \text{null}, \quad x.equals(\text{null}) \implies \text{false}$
   
-  \text{Symmetric:} \quad x, y \neq \text{null}, \quad x.equals(y) \iff y.equals(x) \\
+  **Symmetric:**$\quad x, y \neq \text{null}, \quad x.equals(y) \iff y.equals(x)$
 
-  \text{Transitive:} \quad x, y, z \neq \text{null}, \quad x.equals(y) \land y.equals(z) \implies x.equals(z) \\
+  **Transitive:**$\quad x, y, z \neq \text{null}, \quad x.equals(y) \land y.equals(z) \implies x.equals(z)$
 
-  \text{Consistent:} \quad x, y \neq \text{null}, \quad x.equals(y) \text{ returns the same result unless } x \text{ or } y \text{ is modified}$$
+  **Consistent:**$\quad x, y \neq \text{null}, \quad x.equals(y) \text{ returns the same result unless } x \text{ or } y \text{ is modified}$
 
-> [!NOTE]
-> *Objects.hash(Object... values)* can be used to generate hashcode for objects that have multiple fields.
+  > [!TIP]
+  > *Objects.hash(Object... values)* can be used to generate hashcode for objects that have multiple fields.
 
   [Check the example here.](./Object/OverridenEqualsExample.java)
 
-> [!NOTE]
-> Whenever you override the *equals* method, do override the *hashcode* as well. It is because generally objects with same hashcode are considered equal.
+  > [!IMPORTANT]
+  > Whenever you override the *equals* method, do override the *hashcode* as well. It is because generally objects with same hashcode are considered equal.
