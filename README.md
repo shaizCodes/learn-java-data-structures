@@ -2,9 +2,6 @@
 
 It contains the lessons I learn through the official Java documentation and practices.
 
-<details>
-<summary>Day 01</summary>
-
 * ***Object*** is the root in class hierarchy. Every object is an Object (extends from it or has its non-private properties and methods).
 
   * [*public **Object()***](./Object/README.md#constructors) constructor, which we will probably never use to initialize any object.
@@ -15,36 +12,27 @@ It contains the lessons I learn through the official Java documentation and prac
 > [!CAUTION]
 > *A shallow copy creates a new object that holds the **same top-level properties as the original, but any nested objects are still references to the original**. A deep copy, on the other hand, creates a **completely independent copy of the object and all its nested objects**, ensuring no shared references.*
 
-  * * [*public String **toString()***](./Object/README.md#string-tostring) method returns the object information; complete class name, and object hashcode in hexadecimal. The hashcode is useful to verify whether an object is modified or not.
+* * [*public String **toString()***](./Object/README.md#string-tostring) method returns the object information; complete class name, and object hashcode in hexadecimal. The hashcode is useful to verify whether an object is modified or not.
 
-        > [!NOTE]
-        > An object hashcode changes when the object is modified, and multiple objects can have same hashcode when they are equal but it is not necessary.
+> [!NOTE]
+> An object hashcode changes when the object is modified, and multiple objects can have same hashcode when they are equal but it is not necessary.
 
-</details>
+* * [*public boolean **equals(Object obj)***](./Object/README.md#string-tostring) method verifies whether two objects are equal by checking the following critera:
 
-<details>
-    <summary>Day 02</summary>
+  $$\text{Reflexive:} \quad x \neq \text{null}, \quad x.equals(x) \implies \text{true} \\
 
-* ***Object*** (java.lang.Object)
-
-  * [*public boolean **equals(Object obj)***](./Object/README.md#string-tostring) method verifies whether two objects are equal by checking the following critera:
-
-$$\text{Reflexive:} \quad x \neq \text{null}, \quad x.equals(x) \implies \text{true} \\
-
-\text{Non-nullity:} \quad x \neq \text{null}, \quad x.equals(\text{null}) \implies \text{false} \\
+  \text{Non-nullity:} \quad x \neq \text{null}, \quad x.equals(\text{null}) \implies \text{false} \\
   
-\text{Symmetric:} \quad x, y \neq \text{null}, \quad x.equals(y) \iff y.equals(x) \\
+  \text{Symmetric:} \quad x, y \neq \text{null}, \quad x.equals(y) \iff y.equals(x) \\
 
-\text{Transitive:} \quad x, y, z \neq \text{null}, \quad x.equals(y) \land y.equals(z) \implies x.equals(z) \\
+  \text{Transitive:} \quad x, y, z \neq \text{null}, \quad x.equals(y) \land y.equals(z) \implies x.equals(z) \\
 
-\text{Consistent:} \quad x, y \neq \text{null}, \quad x.equals(y) \text{ returns the same result unless } x \text{ or } y \text{ is modified}$$
+  \text{Consistent:} \quad x, y \neq \text{null}, \quad x.equals(y) \text{ returns the same result unless } x \text{ or } y \text{ is modified}$$
 
 > [!NOTE]
 > *Objects.hash(Object... values)* can be used to generate hashcode for objects that have multiple fields.
 
-[Check the example here.](./Object/OverridenEqualsExample.java)
+  [Check the example here.](./Object/OverridenEqualsExample.java)
 
 > [!NOTE]
 > Whenever you override the *equals* method, do override the *hashcode* as well. It is because generally objects with same hashcode are considered equal.
-
-</details>
