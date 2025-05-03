@@ -68,3 +68,7 @@
 
 > [!NOTE]
 > [Read more about ***String*** here, especially this note](../String/README.md#important-note-what-class-to-use-and-when)
+
+* ### *public boolean* equals(Object obj)
+
+    It compares two objects to verify they are equal. This method can be overriden to define custom criteria for equality, however, hashcode() should be overriden too, because two objects with same hashcode are generally considered equal/same.
