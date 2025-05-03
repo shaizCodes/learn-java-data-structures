@@ -74,3 +74,11 @@
     It compares two objects to verify they are equal. This method can be overriden to define custom criteria for equality, however, hashcode() should be overriden too, because two objects with same hashcode are generally considered equal/same.
 
     ![Sample program overriding Equals](./outputs/With%20And%20Without%20Equals.PNG)
+
+* ### *protected void* finalize() *throws Throwable*
+
+    It has been deprecated since v9+, though, its purpose was to do finalization, or to free resources before garbage collection starts.
+
+    ![Sample program overriding Finalize](./outputs/Finalization.PNG)
+
+    [Check the source code here.](./OverridenFinalizeExample.java)

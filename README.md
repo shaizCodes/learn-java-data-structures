@@ -36,3 +36,8 @@ It contains the lessons I learn through the official Java documentation and prac
 
 > [!IMPORTANT]
 > Whenever you override the *equals* method, do override the *hashcode* as well. It is because generally objects with same hashcode are considered equal.
+
+* * [*protected void **finalize()** throws Throwable*](./Object/README.md#protected-void-finalize-throws-throwable) method is to define the actions taken by finalization of an object. Such as closing database connection before discarding all the resources.
+
+> [!CAUTION]
+> ***finalize()*** is deprecated, avoid using it. Instead refer to *WeakReference* or *PhantomReference*.
