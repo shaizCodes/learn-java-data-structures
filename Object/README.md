@@ -83,6 +83,18 @@
 
     It has been deprecated since v9+, though, its purpose was to do finalization, or to free resources before garbage collection starts.
 
-    ![Sample program overriding Finalize](./outputs/Finalization.PNG)
+    Due to the following major reasons, it is deprecated:
 
-    [Check the source code here.](./OverridenFinalizeExample.java)
+    * **Unpredictable latency** — An arbitrarily long time may pass between the moment an object becomes unreachable and the moment its finalizer is called. In fact, the GC provides no guarantee that any finalizer will ever be called.
+
+    * **Unconstrained behavior** — Finalizer code can take any action. In particular, it can save a reference to the object being finalized, thereby resurrecting the object and making it reachable once again.
+
+    * **Always enabled** — Finalization has no explicit registration mechanism. A class with a finalizer enables finalization for every instance of the class, whether needed or not. Finalization of an object cannot be cancelled, even if it is no longer necessary for that object.
+
+    * **Unspecified threading** — Finalizers run on unspecified threads, in an arbitrary order. Neither threading nor ordering can be controlled.
+
+    For detailed information, [read this webpage](https://openjdk.org/jeps/421).
+
+    Below is a sample program output that shows the *finalize()* method never got called. [Check the source code here.](./OverridenFinalizeExample.java)
+
+    ![Sample program overriding Finalize](./outputs/Finalization.PNG)
