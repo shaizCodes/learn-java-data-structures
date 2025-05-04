@@ -77,6 +77,8 @@
 
     ![Sample program overriding Equals](./outputs/With%20And%20Without%20Equals.PNG)
 
+    [Check the source code here.](./OverridenEqualsExample.java)
+
 * ### *protected void* finalize() *throws Throwable*
 
     It has been deprecated since v9+, though, its purpose was to do finalization, or to free resources before garbage collection starts.
