@@ -66,6 +66,8 @@
     );
     ```
 
+    ![toString composes of class name and object hexadecimal hashcode](./outputs/ToString%20composition.PNG)
+
 > [!NOTE]
 > [Read more about ***String*** here, especially this note](../String/README.md#important-note-what-class-to-use-and-when)
 

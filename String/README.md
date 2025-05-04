@@ -15,3 +15,6 @@
 
 * The figure shows the StringBuilder (*fourth*) is mutable unlike String (*first*, *second*, *third*).
 ![String and StringBuilder](./outputs/String%20and%20String%20Builder.PNG)
+
+> [!NOTE]
+> *System.identityHashCode(Object)* does not return the actual memory address. Java does not provide any such direct mechanism.
