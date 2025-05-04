@@ -93,8 +93,30 @@
 
     * **Unspecified threading** — Finalizers run on unspecified threads, in an arbitrary order. Neither threading nor ordering can be controlled.
 
-    For detailed information, [read this webpage](https://openjdk.org/jeps/421).
+    For detailed information, [read this JDK Enhancement Proposal (JEP)](https://openjdk.org/jeps/421).
 
     Below is a sample program output that shows the *finalize()* method never got called. [Check the source code here.](./OverridenFinalizeExample.java)
 
     ![Sample program overriding Finalize](./outputs/Finalization.PNG)
+
+> [!TIP]
+>
+> * Either use *try-with-resources* statement introduced in **Java 7** which guarantees the resources will be released regardless of exceptions unlike conventional *try-finally* blocks where an exception in *finally* block can leak memory.
+>
+>   ```Java
+>   try (FileInputStream input = new FileInputStream(file1);
+>        FileOutputStream output = new FileOutputStream(file2)) {
+>       ... copy bytes from input to output ...
+>    ```
+>
+> * Or use cleaner API introduced in **Java v9** which registers a cleaning action to be run when the object becomes unreachable. Cleaning actions avoid many of the drawbacks of finalizers:
+>
+>   * **No object resurrection** — Cleaning actions cannot access the object, so object resurrection is impossible.
+>   * **Enabled on-demand** — A constructor can register a cleaning action for a new object after the object is fully initialized. This means that a cleaning action never processes an uninitialized or partially initialized object. In addition, a program can cancel an object's cleaning action so that the GC no longer needs to schedule the action.
+>   * **No interference** — The developer can control which threads run cleaning actions, and so can prevent interference between cleaning actions. In addition, an erroneous or malicious subclass cannot interfere with cleaning actions set up by its superclass.
+
+> [!CAUTION]
+> Like finalizers, cleaning actions are scheduled by the GC, so they may suffer from unbounded delays. Thus the *cleaner API* ***should not be used in situations where the timely release of a resource is required.***
+
+> [!IMPORTANT]
+> Cleaners should not be used to replace a finalizer that serves only as a safety net to protect against uncaught exceptions or missing calls of close() methods; in such cases, investigate using try-with-resources before converting the finalizer to a cleaner.
