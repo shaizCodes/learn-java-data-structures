@@ -43,4 +43,4 @@ Before we begin, let's [proceed to *Object*](./Object/README.md) class as every 
 * [*protected void **finalize()** throws Throwable*](./Object/README.md#protected-void-finalize-throws-throwable) method is to define the actions taken by finalization of an object. Such as closing database connection before discarding all the resources.
 
 > [!CAUTION]
-> ***finalize()*** is deprecated, avoid using it. Instead refer to *WeakReference* or *PhantomReference*.
+> ***finalize()*** is deprecated, avoid using it. Instead refer to *WeakReference* or *PhantomReference*. [Read more particularly about alternatives here](./Object/README.md#protected-void-finalize-throws-throwable).
