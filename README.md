@@ -44,3 +44,9 @@ Before we begin, let's [proceed to *Object*](./Object/README.md) class as every 
 
 > [!CAUTION]
 > ***finalize()*** is deprecated, avoid using it. Instead refer to *WeakReference* or *PhantomReference*. [Read more particularly about alternatives here](./Object/README.md#protected-void-finalize-throws-throwable).
+
+* [*public final void **wait()** throws InterruptedException, IllegalMonitorStateException*](./Object/README.md#public-final-void-wait-throws-interruptedexception-illegalmonitorstateexception) method causes a thread to wait (pause its operations) on an object until it is not notified (given access to the object's monitor).
+
+* [*public final void **notify()** throws IllegalMonitorStateException*](./Object/README.md#public-final-void-notify-throws-illegalmonitorstateexception) method notifies (awakens) a waiting thread to resume its operations on an object.
+
+* [*public final void **notifyAll()** throws IllegalMonitorStateException*](./Object/README.md#public-final-void-notifyall-throws-illegalmonitorstateexception) method notifies (awakens) all waiting threads to resume their operations on an object. However, the object's monitor can be owned by one at a time.
