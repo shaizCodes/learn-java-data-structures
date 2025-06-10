@@ -50,3 +50,6 @@ Before we begin, let's [proceed to *Object*](./Object/README.md) class as every 
 * [*public final void **notify()** throws IllegalMonitorStateException*](./Object/README.md#public-final-void-notify-throws-illegalmonitorstateexception) method notifies (awakens) a waiting thread to resume its operations on an object.
 
 * [*public final void **notifyAll()** throws IllegalMonitorStateException*](./Object/README.md#public-final-void-notifyall-throws-illegalmonitorstateexception) method notifies (awakens) all waiting threads to resume their operations on an object. However, the object's monitor can be owned by one at a time.
+
+---
+Now, let's [begin with *Collections*](./Collections/README.md) class to learn about the Java Collections Framework.
