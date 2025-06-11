@@ -86,19 +86,19 @@
 
     Due to the following major reasons, it is deprecated:
 
-    * **Unpredictable latency** — An arbitrarily long time may pass between the moment an object becomes unreachable and the moment its finalizer is called. In fact, the GC provides no guarantee that any finalizer will ever be called.
+  * **Unpredictable latency** — An arbitrarily long time may pass between the moment an object becomes unreachable and the moment its finalizer is called. In fact, the GC provides no guarantee that any finalizer will ever be called.
 
-    * **Unconstrained behavior** — Finalizer code can take any action. In particular, it can save a reference to the object being finalized, thereby resurrecting the object and making it reachable once again.
+  * **Unconstrained behavior** — Finalizer code can take any action. In particular, it can save a reference to the object being finalized, thereby resurrecting the object and making it reachable once again.
 
-    * **Always enabled** — Finalization has no explicit registration mechanism. A class with a finalizer enables finalization for every instance of the class, whether needed or not. Finalization of an object cannot be cancelled, even if it is no longer necessary for that object.
+  * **Always enabled** — Finalization has no explicit registration mechanism. A class with a finalizer enables finalization for every instance of the class, whether needed or not. Finalization of an object cannot be cancelled, even if it is no longer necessary for that object.
 
-    * **Unspecified threading** — Finalizers run on unspecified threads, in an arbitrary order. Neither threading nor ordering can be controlled.
+  * **Unspecified threading** — Finalizers run on unspecified threads, in an arbitrary order. Neither threading nor ordering can be controlled.
 
-    For detailed information, [read this JDK Enhancement Proposal (JEP)](https://openjdk.org/jeps/421).
+  For detailed information, [read this JDK Enhancement Proposal (JEP)](https://openjdk.org/jeps/421).
 
-    Below is a sample program output that shows the *finalize()* method never got called. [Check the source code here.](./OverridenFinalizeExample.java)
+  Below is a sample program output that shows the *finalize()* method never got called. [Check the source code here.](./OverridenFinalizeExample.java)
 
-    ![Sample program overriding Finalize](./outputs/Finalization.PNG)
+  ![Sample program overriding Finalize](./outputs/Finalization.PNG)
 
 > [!TIP]
 >
@@ -115,24 +115,22 @@
 >   * **No object resurrection** — Cleaning actions cannot access the object, so object resurrection is impossible.
 >   * **Enabled on-demand** — A constructor can register a cleaning action for a new object after the object is fully initialized. This means that a cleaning action never processes an uninitialized or partially initialized object. In addition, a program can cancel an object's cleaning action so that the GC no longer needs to schedule the action.
 >   * **No interference** — The developer can control which threads run cleaning actions, and so can prevent interference between cleaning actions. In addition, an erroneous or malicious subclass cannot interfere with cleaning actions set up by its superclass.
-
 > [!CAUTION]
 > Like finalizers, cleaning actions are scheduled by the GC, so they may suffer from unbounded delays. Thus the *cleaner API* ***should not be used in situations where the timely release of a resource is required.***
-
 > [!IMPORTANT]
 > Cleaners should not be used to replace a finalizer that serves only as a safety net to protect against uncaught exceptions or missing calls of close() methods; in such cases, investigate using try-with-resources before converting the finalizer to a cleaner.
 
 * ### *public final void* wait() *throws InterruptedException, IllegalMonitorStateException*
 
-    It causes the current thread of the object to wait until another thread notifies the object using *notify()* or *notifyAll()*.
+  It causes the current thread of the object to wait until another thread notifies the object using *notify()* or *notifyAll()*.
 
-    Exceptions throwable by this method:
+  Exceptions throwable by this method:
 
-    * ***IllegalMonitorStateException*** - if the current thread is not the owner of the object's monitor.
+  * ***IllegalMonitorStateException*** - if the current thread is not the owner of the object's monitor.
 
-    * ***InterruptedException*** - if any thread interrupted the current thread before or while the current thread was waiting for a notification.
+  * ***InterruptedException*** - if any thread interrupted the current thread before or while the current thread was waiting for a notification.
 
-    [Check this sample program for wait() and notify()](./WaitAndNotifyExample.java)
+  [Check this sample program for wait() and notify()](./WaitAndNotifyExample.java)
 
 > [!NOTE]
 > This method should always be used in a loop as in the one argument version, interrupts and spurious wakeups are possible.
@@ -149,7 +147,7 @@
 
 * ### *public final void* notify() *throws IllegalMonitorStateException*
 
-    It awakens a single waiting thread for an object's monitor. If many threads are waiting on this object, one of them is chosen arbitrarily to be awakened. A thread waits on an object's monitor by calling one of the wait methods.
+  It awakens a single waiting thread for an object's monitor. If many threads are waiting on this object, one of them is chosen arbitrarily to be awakened. A thread waits on an object's monitor by calling one of the wait methods.
 
 > [!IMPORTANT]
 > A thread becomes the owner of the object's monitor in one of three ways:
@@ -161,7 +159,7 @@ Only one thread at a time can own an object's monitor.
 >
 >[Check this sample program for each of these cases](./MonitorContentionExample.java)
 
-*   [Check this sample program for wait() and notify()](./WaitAndNotifyExample.java)
+* [Check this sample program for wait() and notify()](./WaitAndNotifyExample.java)
 
     ```Java
     Object sharedObject = new Object();
